@@ -1,29 +1,22 @@
 ﻿using sevicePopraw.models;
+using sevicePopraw.Repositories;
 
 namespace sevicePopraw.Services;
 
 public class StudentsService : IStudentsService
 {
-    private static readonly List<Student> _students = new()
+
+    private readonly IStudentsRepository _studentsRepository;
+
+    public StudentsService(IStudentsRepository studentsRepository)
     {
-        new Student
-        {
-            IdStudent = 1, FirstName = "jan", LastName = "ss", Address = "waw", Email = "asdsd", IndexNumber = 1
-        },
-        new Student
-        {
-            IdStudent = 2, FirstName = "hg", LastName = "uiui", Address = "fghgfh", Email = "xxxxx", IndexNumber = 2
-        },
-        new Student
-        {
-            IdStudent = 3, FirstName = "xcg", LastName = "nnns", Address = "gfhfgh", Email = "vmv", IndexNumber = 3
-        }
-    };
-    
-    
+        _studentsRepository = studentsRepository;
+    }
+
     public IEnumerable<Student> GetStudents()
     {
-        return _students;
+        var data = _studentsRepository.FetchStudents();
+        return data;
     }
 
     public int CreateStudent(Student student)

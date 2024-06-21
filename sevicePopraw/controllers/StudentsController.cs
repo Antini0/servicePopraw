@@ -31,18 +31,18 @@ public class StudentsController : ControllerBase
     /// </summary>
     /// <param name="id">Id of a student</param>
     /// <returns>Student</returns>
-    [HttpGet("{id:int}")]
-    public IActionResult GetStudent(int id)
-    {
-        var student = _studentsService.GetStudent(id);
-
-        if (student==null)
-        {
-            return NotFound("Student not found");
-        }
-        
-        return Ok(student);
-    }
+    // [HttpGet("{id:int}")]
+    // public IActionResult GetStudent(int id)
+    // {
+    //     var student = _studentsService.GetStudent(id);
+    //
+    //     if (student==null)
+    //     {
+    //         return NotFound("Student not found");
+    //     }
+    //     
+    //     return Ok(student);
+    // }
     
     /// <summary>
     /// Endpoint used to create a student.
@@ -62,22 +62,22 @@ public class StudentsController : ControllerBase
     /// <param name="id">Id of a student</param>
     /// <param name="student">204 No Content</param>
     /// <returns></returns>
-    [HttpPut("{id:int}")]
-    public IActionResult UpdateStudent(int id, Student student)
-    {
-        var affectedCount = _studentsService.UpdateStudent(student);
-        return NoContent();
-    }
+    // [HttpPut("{id:int}")]
+    // public IActionResult UpdateStudent(int id, Student student)
+    // {
+    //     var affectedCount = _studentsService.UpdateStudent(student);
+    //     return NoContent();
+    // }
     
     /// <summary>
     /// Endpoint used to delete a student.
     /// </summary>
     /// <param name="id">Id of a student</param>
     /// <returns>204 No Content</returns>
-    [HttpDelete("{id:int}")]
-    public IActionResult DeleteStudent(int id)
-    {
-        var affectedCount = _studentsService.DeleteStudent(id);
-        return NoContent();
-    }
+    // [HttpDelete("{id:int}")]
+    // public IActionResult DeleteStudent(int id)
+    // {
+    //     var affectedCount = _studentsService.DeleteStudent(id);
+    //     return NoContent();
+    // }
 }
